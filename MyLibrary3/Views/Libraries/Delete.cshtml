@@ -1,0 +1,26 @@
+﻿@model MyLibrary3.Models.Library
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>מחיקת ספריה</h1>
+
+<h3>האם אתה בטוח שברצונך למחוק ספריה זה?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="מחק" class="btn btn-danger" /> |
+        <a asp-action="Index">חזרה לרשימת הספריות</a>
+    </form>
+</div>

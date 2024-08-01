@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    ViewBag.Title = "Navigation";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">נווט אל תצוגות שונות</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-2 mb-3">
+            <button onclick="location.href='@Url.Action("Index", "Libraries")'" class="btn btn-secondary btn-block">ספריות</button>
+        </div>
+        <div class="col-md-2 mb-3">
+            <button onclick="location.href='@Url.Action("Index", "Shelves")'" class="btn btn-warning btn-block">מדפים</button>
+        </div>
+        <div class="col-md-2 mb-3">
+            <button onclick="location.href='@Url.Action("Index", "Books")'" class="btn btn-success btn-block">ספרים</button>
+        </div>
+        <div class="col-md-2 mb-3">
+            <button onclick="location.href='@Url.Action("Index", "BookSets")'" class="btn btn-info btn-block">סט ספרים</button>
+        </div>
+    </div>
+</div>

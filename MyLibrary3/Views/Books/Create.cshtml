@@ -1,0 +1,73 @@
+﻿@model MyLibrary3.Models.Book
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>יצירת ספר</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" id="createForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="GenerId" class="control-label"></label>
+                <select asp-for="GenerId" class="form-control" asp-items="ViewBag.GenreId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShelfId" class="control-label"></label>
+                <select asp-for="ShelfId" class="form-control" asp-items="ViewBag.ShelfId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Width" class="control-label"></label>
+                <input asp-for="Width" class="form-control" />
+                <span asp-validation-for="Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Height" class="control-label"></label>
+                <input asp-for="Height" class="form-control" />
+                <span asp-validation-for="Height" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookSet" class="control-label"></label>
+                <input asp-for="BookSet" class="form-control" />
+                <span asp-validation-for="BookSet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="צור" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">חזרה לרשימת הספרים</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script type="text/javascript">
+        document.getElementById("createForm").addEventListener("submit", function (event) {
+            var confirmationMessage = "@TempData["ConfirmationMessage"]";
+
+            if (confirmationMessage && confirmationMessage.length > 0) {
+                event.preventDefault(); // Prevent form submission
+
+                if (confirm(confirmationMessage)) {
+                    this.submit(); // Submit the form if the user confirms
+                } else {
+                    alert("נא להתאים את מידות הספר או לבחור מדף אחר.");
+                }
+            }
+        });
+    </script>
+}

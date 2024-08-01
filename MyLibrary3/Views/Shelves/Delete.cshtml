@@ -1,0 +1,38 @@
+﻿@model MyLibrary3.Models.Shelf
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>מחיקת מדף</h1>
+
+<h3>האם אתה בטוח שברצונך למחוק מדף זה?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Library)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Library.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Height)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Width)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Width)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="מחק" class="btn btn-danger" /> |
+        <a asp-action="Index">חזרה לרשימת המדפים</a>
+    </form>
+</div>
